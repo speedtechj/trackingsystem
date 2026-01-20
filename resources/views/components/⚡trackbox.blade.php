@@ -97,7 +97,7 @@ new class extends Component {
                                     <p class="text-sm font-bold text-gray-800">info@starexpresskargo.com</p>
                                 </div>
                             </a>
-                            <a href="tel:+1403-201-1840"
+                            <a href="tel:+17804682822"
                                 class="group flex items-center gap-4 p-4 rounded-xl border border-gray-100 hover:border-green-200 hover:bg-green-50 transition-all">
                                 <div
                                     class="w-12 h-12 bg-gray-50 group-hover:bg-white rounded-lg flex items-center justify-center text-gray-500 group-hover:text-green-600 transition-colors">
@@ -109,7 +109,7 @@ new class extends Component {
                                 </div>
                                 <div>
                                     <span class="block text-xs text-gray-400 font-bold uppercase">Call Center</span>
-                                    <p class="text-sm font-bold text-gray-800">+1 403-201-1840</p>
+                                    <p class="text-sm font-bold text-gray-800">+1780-468-2822</p>
                                 </div>
                             </a>
                         </div>
