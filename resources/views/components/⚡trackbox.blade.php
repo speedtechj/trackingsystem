@@ -9,18 +9,12 @@ new class extends Component {
 
     public function search()
     {
-        $this->results = Invoicestatus::where('generated_invoice', '=', $this->invoice)->orderBy('date_update')->get();
+        $this->results = Invoicestatus::where('generated_invoice', $this->invoice)
+        ->orWhere('manual_invoice', $this->invoice)
+        ->orderBy('date_update')->get();
         // dd($this->results);
     }
-    public function resetPage()
-    {
-        // Resets $invoice to '' and $result to null
-        $this->invoice = '';
-        $this->results = collect(); // This resets the collection properly
-
-        // Optional: If you use a 'searchPerformed' flag, reset that too
-        // $this->reset('searchPerformed');
-    }
+    
 };
 ?>
 
@@ -140,12 +134,12 @@ new class extends Component {
                             </p>
                             <h2 class="text-2xl font-mono font-bold">INV-{{ $invoice }}</h2>
                         </div>
-                        <div class="mt-4 sm:mt-0 text-right">
+                        {{-- <div class="mt-4 sm:mt-0 text-right">
                             <p class="text-blue-100 text-sm uppercase tracking-wider font-semibold">Current Status
                             </p>
                             <span class="bg-blue-500 px-3 py-1 rounded-full text-sm font-bold border border-blue-400">IN
                                 TRANSIT</span>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <div class="p-4 lg:p-4">
@@ -183,6 +177,11 @@ new class extends Component {
                                 </div>
                             </div>
                         @endforeach
+                        <div class="text-center w-full mt-8">
+                            <button onclick="window.location.reload();" class="cursor-pointer underline">
+                                Clear search and try again
+                            </button>
+                        </div>
                     </div>
 
 
