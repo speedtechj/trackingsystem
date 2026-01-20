@@ -103,7 +103,6 @@ new class extends Component {
                                     <p class="text-sm font-bold text-gray-800">support@cargo.com</p>
                                 </div>
                             </a>
-
                             <a href="tel:+123456789"
                                 class="group flex items-center gap-4 p-4 rounded-xl border border-gray-100 hover:border-green-200 hover:bg-green-50 transition-all">
                                 <div
