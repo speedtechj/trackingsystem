@@ -198,11 +198,19 @@ new class extends Component {
                                 </div>
                             </div>
                         @endforeach
-                        <div class="text-center w-full mt-8">
+                        {{-- <div class="text-center w-full mt-8">
                             <button onclick="window.location.reload();" class="cursor-pointer underline">
                                 Clear search and try again
                             </button>
-                        </div>
+                        </div> --}}
+                        <div class="text-center w-full mt-8">
+    <button
+        type="button"
+        onclick="window.location.reload();"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold p-4 rounded-lg transition-all">
+        TRACK ANOTHER ONE
+    </button>
+</div>
                     </div>
 
 
