@@ -45,9 +45,7 @@ new #[Layout('layouts::app')] class extends Component
                         </svg>
                     </div>
                     <h2 class="text-2xl font-bold text-gray-800">Track Your Shipment</h2>
-                    <p class="text-gray-600 mt-2 max-w-sm">
-                        Please enter your invoice number above to track the status of your shipment to the Philippines.
-                    </p>
+
                 </div>
             </div>
         @elseif($results->isEmpty())
