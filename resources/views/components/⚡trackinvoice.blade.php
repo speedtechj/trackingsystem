@@ -28,8 +28,6 @@ new #[Layout('layouts::app')] class extends Component
             <h1 class="text-4xl font-extrabold text-gray-900 mb-4">
                 Track Your Balikbayan Box
             </h1>
-            <p class="text-lg text-gray-600 mb-8">Enter your invoice number to see the status of your shipment to the
-                Philippines.</p>
 
 
 
