@@ -1,27 +1,28 @@
 <?php
 
 use Livewire\Component;
+use Livewire\Attributes\Url;
 use App\Models\Invoicestatus;
 use App\Models\Trackstatus;
-new #[Layout('layouts::app')] class extends Component {
-    public $invoice = '';
+new #[Layout('layouts::app')] class extends Component
+{
+    #[Url]
+    public $search;
+    public $invoice;
     public $results = [];
 
-    public function search()
-    {
-        $this->results = Invoicestatus::where('generated_invoice', $this->invoice)
+    public function mount(){
+        $this->invoice = $this->search;
+       $this->results = Invoicestatus::where('generated_invoice', $this->invoice)
         ->orWhere('manual_invoice', $this->invoice)
         ->orderBy('date_update')->get();
-        // dd($this->results);
     }
 
 };
 ?>
 
 <div>
-
-
-    <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+   <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
 
         <div class="max-w-3xl mx-auto text-center mb-2">
             <h1 class="text-4xl font-extrabold text-gray-900 mb-4">
@@ -30,29 +31,8 @@ new #[Layout('layouts::app')] class extends Component {
             <p class="text-lg text-gray-600 mb-8">Enter your invoice number to see the status of your shipment to the
                 Philippines.</p>
 
-            {{-- <div class="flex flex-col sm:flex-row gap-3">
-                <form wire:submit.prevent="search">
-                    <input autofocus type="text" wire:model="invoice" placeholder="Invoice Number" x-ref="searchInput"
-                        class="block w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-4 text-lg border">
-                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg transition-all">
-                    Track
-                </button>
-                </form>
-            </div> --}}
-            <div class="flex flex-col sm:flex-row gap-3">
-    <form wire:submit.prevent="search" class="flex w-full gap-2">
-        <input autofocus type="text"
-            wire:model="invoice"
-            placeholder="Invoice Number"
-            x-ref="searchInput"
-            class="block w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 p-4 text-lg border">
 
-        <button type="submit"
-            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg transition-all">
-            Track
-        </button>
-    </form>
-</div>
+
         </div>
         @if (empty($invoice))
             <div class="max-w-2xl mx-auto mt-8 animate-fade-in">
@@ -127,18 +107,9 @@ new #[Layout('layouts::app')] class extends Component {
                                 </div>
                             </a>
                         </div>
-                        {{-- <div class="text-center w-full mt-8">
-                            <button onclick="window.location.reload();" class="cursor-pointer underline">
-                                TRACK ANOTHER ONE
-                            </button>
-                        </div> --}}
+
                         <div class="text-center w-full mt-8">
-    <button
-        type="button"
-        onclick="window.location.reload();"
-        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold p-4 rounded-lg transition-all">
-        TRACK ANOTHER ONE
-    </button>
+
 </div>
                     </div>
                 </div>
@@ -204,16 +175,11 @@ new #[Layout('layouts::app')] class extends Component {
                             </button>
                         </div> --}}
                         <div class="text-center w-full mt-8">
-    <button
-        type="button"
-        onclick="window.location.reload();"
-        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold p-4 rounded-lg transition-all">
-        TRACK ANOTHER ONE
-    </button>
+
 </div>
                     </div>
 
 
                 </div>
         @endif
-    </div>
+</div>
